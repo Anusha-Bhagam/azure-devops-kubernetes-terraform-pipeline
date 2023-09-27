@@ -12,8 +12,8 @@ strategy:
         
 
 pool:
-  vmImage: ${operatingSystem}
+  vmImage: $(operatingSystem)
 
 steps:
-- script: echo running on ${operatingSystem}
+- script: echo running on $(operatingSystem)
   displayName: 'Run a one-line script'
