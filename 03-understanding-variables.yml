@@ -1,0 +1,17 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- stage: BUILD
+  jobs:
+  - job: FirstJob
+    steps:
+    - bash: echo $(CustomVariable)
+    - bash: echo $(Build.BuildNumber)
+  - job: SecondJob
+    steps:
+    - bash: echo BUILD SecondJob
+
