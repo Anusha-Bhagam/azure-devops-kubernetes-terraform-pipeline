@@ -9,31 +9,40 @@ stages:
   jobs:
   - job: FirstJob
     steps:
-    - bash: echo BUILD FirstJob
+    - bash: echo $(CustomVariable)
   - job: SecondJob
     steps:
     - bash: echo BUILD SecondJob
 
 - stage: DEV
   dependsOn: BUILD
+  variables:
+    environment:
+      Dev
   jobs:
   - job: DevDeployJob
     steps:
-    - bash: echo DevDeployJob
+    - bash: echo $(environment)DeployJob
 
 - stage: QA
   dependsOn: BUILD
+  variables:
+    environment:
+      Dev
   jobs:
   - job: QADeployJob
     steps:
-    - bash: echo QADeployJob
+    - bash: echo $(environment)DeployJob
 
 - stage: PROD
   dependsOn: 
   - DEV
   - QA
+  variables:
+    environment:
+      Dev
   jobs:
   - job: ProdDeployJob
     steps:
-    - bash: echo ProdDeployJob
+    - bash: echo $(environment)DeployJob
 
