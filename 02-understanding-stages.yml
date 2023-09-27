@@ -28,7 +28,7 @@ stages:
   dependsOn: BUILD
   variables:
     environment:
-      Dev
+      QA
   jobs:
   - job: QADeployJob
     steps:
@@ -40,7 +40,7 @@ stages:
   - QA
   variables:
     environment:
-      Dev
+      Prod
   jobs:
   - job: ProdDeployJob
     steps:
