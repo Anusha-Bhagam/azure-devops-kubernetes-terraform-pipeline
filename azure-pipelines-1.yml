@@ -5,7 +5,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo K8S terraform
+- script: echo Hello, world!
   displayName: 'Run a one-line script'
 
 - task: DownloadSecureFile@1
@@ -20,18 +20,18 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
     backendType: 'azurerm'
-    backendServiceArm: 'Azure_resource_manager_Service_Connection'
+    backendServiceArm: 'azureresourcegroup'
     backendAzureRmSubscriptionId: 'c9fb04b9-e01d-410a-96aa-e6779abb261d'
     ensureBackend: true
-    backendAzureRmResourceGroupName: 'rgazure-azure-terraform'
+    backendAzureRmResourceGroupName: 'sampleresourcebhagamanu'
     backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'storageazureterraform'
-    backendAzureRmContainerName: 'storageazureterraformcontainer'
-    backendAzureRmKey: 'kubernetes-dev.tfstate'
-    allowTelemetryCollection: false
+    backendAzureRmStorageAccountName: 'stgaccanushabhagam'
+    backendAzureRmContainerName: 'stgaccanushabhagamcontainer'
+    backendAzureRmKey: 'kubernetesfile.tfstate'
+    allowTelemetryCollection: true
 
 - task: TerraformCLI@0
   inputs:
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure /kubernetes'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
