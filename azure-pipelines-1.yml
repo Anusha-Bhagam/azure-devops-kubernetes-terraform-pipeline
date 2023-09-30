@@ -23,7 +23,7 @@ steps:
     backendServiceArm: 'azureresourcegroup'
     backendAzureRmSubscriptionId: 'c9fb04b9-e01d-410a-96aa-e6779abb261d'
     ensureBackend: true
-    backendAzureRmResourceGroupName: 'sampleresourcebhagamanu'
+    backendAzureRmResourceGroupName: 'sampleresourcebhagamanusha'
     backendAzureRmResourceGroupLocation: 'westeurope'
     backendAzureRmStorageAccountName: 'stgaccanushabhagam'
     backendAzureRmContainerName: 'stgaccanushabhagamcontainer'
